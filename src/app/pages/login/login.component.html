@@ -1,0 +1,72 @@
+<div class="limiter animated fadeInLeft">
+  <div class="container-login100">
+    <div class="wrap-login100 p-t-50 p-b-90">
+      <form
+        class="login100-form validate-form flex-sb flex-w"
+        (ngSubmit)="onSubmit(form)"
+        #form="ngForm"
+      >
+        <span class="login100-form-title p-b-51"> Login </span>
+
+        <span
+          class="text-danger mb-1 animated fadeIn"
+          *ngIf="form.submitted && form.controls['username'].errors"
+          >The email is required</span
+        >
+        <div class="wrap-input100 m-b-16">
+          <input
+            class="input100"
+            type="email"
+            name="username"
+            email
+            placeholder="Username"
+            required
+            [(ngModel)]="user.email"
+          />
+
+          <span class="focus-input100"></span>
+        </div>
+
+        <span
+          class="text-danger mb-1 animated fadeIn"
+          *ngIf="form.submitted && form.controls['password'].errors"
+          >The password is required</span
+        >
+        <div class="wrap-input100 m-b-16" data-validate="Password is required">
+          <input
+            class="input100"
+            type="password"
+            name="password"
+            required
+            placeholder="Password"
+            [(ngModel)]="user.password"
+          />
+          <span class="focus-input100"></span>
+        </div>
+
+        <div class="flex-sb-m w-full p-t-3 p-b-24">
+          <div class="contact100-form-checkbox">
+            <input
+              class="input-checkbox100"
+              id="ckb1"
+              type="checkbox"
+              name="remember-me"
+              [(ngModel)]="rememberMe"
+            />
+            <label class="label-checkbox100" for="ckb1">
+              Recordar mi usuario
+            </label>
+          </div>
+
+          <div>
+            <a routerLink="/registro" class="txt1"> ¿No tienes cuenta? </a>
+          </div>
+        </div>
+
+        <div class="container-login100-form-btn m-t-17">
+          <button class="login100-form-btn" type="submit">Ingresar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
